@@ -10,21 +10,22 @@
 
     <template>
       <div :key="questions.title" v-for="questions in typesOfQuestions">
-        <div
-          class="grid grid-cols-1 gap-4 md:grid-cols-2"
+        <base-question
           :key="question.title"
           v-for="question in questions"
+          :question="question.title"
+          :answer="question.details"
         >
-          {{ question.details }}
-          {{ question.title }}
-        </div>
+        </base-question>
       </div>
     </template>
   </div>
 </template>
 
 <script>
+import BaseQuestion from '../components/BaseQuestion.vue';
 export default {
+  components: { BaseQuestion },
   data() {
     return {
       legend: "We are here to support you",
@@ -58,3 +59,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>
