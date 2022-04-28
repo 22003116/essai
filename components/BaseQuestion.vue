@@ -1,6 +1,6 @@
 <template>
     <div @click="toggle" class="bg-white shadow rounded">
-        <p>
+        <p class="shadow-sm font-bold">
             {{ question }}
         </p>
         <p v-if="visible">
