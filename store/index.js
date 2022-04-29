@@ -10,7 +10,10 @@ export const state = () => ({
         },
         {
             name: 'other category',
-            questions: [0,1]
+            questions: [
+                'question 1',
+                'question 2'
+            ]
         }
     ],
     questions: [
@@ -34,22 +37,30 @@ export const state = () => ({
   })
   
   export const mutations = {
-    addCategory(state, text) {
+    addCategory(state, name) {
       state.categories.push({
-        text,
-        done: false
+        name,
+        questions: []
       })
     },
-    removeCategory(state, { todo }) {
-      state.categories.splice(state.categories.indexOf(todo), 1)
+    removeCategory(state, { index }) {
+      state.categories.splice(state.categories.indexOf(index), 1)
     },
-    addQuestion(state, text) {
+    addQuestion(state, { question, answer }) {
       state.questions.push({
-        text,
-        done: false
+        question,
+        answer
       })
     },
-    removeQuestion(state, { todo }) {
-      state.questions.splice(state.questions.indexOf(todo), 1)
+    removeQuestion(state, { name }) {
+      state.questions.splice(state.questions.indexOf(name), 1)
     },
+    addQuestionToCategory(state, { index, name }) {
+        state.categories[index].questions.push({
+            name
+          })
+    },
+    removeQuestionFromCategory(state, { index, name }) {
+      state.categories[index].questions.splice(state.categories[index].questions.indexOf(name), 1)
+    }
   }
