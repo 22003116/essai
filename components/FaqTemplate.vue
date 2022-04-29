@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import BaseQuestion from '../components/BaseQuestion.vue';
+import BaseQuestion from './Base/BaseQuestion.vue';
 export default {
   components: { BaseQuestion },
   data() {
@@ -36,25 +36,23 @@ export default {
           title: "Frequently Asked Questions",
           questions: [
              {
-              details:
-                "Yes, once logged go to your settings. Under “Subscription” you can choose to upgrade or cancel your plan at any time.",
-              title: "Can I upgrade or cancel my plan later?",
+              details: "answer 1",
+              title: "question 1",
             },
 
             {
-              details:
-                "Yes, you can easily download leads into an Excel .csv file, or you can export leads directly to your CRM.",
-              title: "Can I export my leads to Excel?",
+              details: "answer 2",
+              title: "Cquestion 2",
             },
 
             {
-              details: "Yes, and we offer a 25% discount for paying annually.",
-              title: "Do you have annual plans?",
+              details: "answer 3",
+              title: "question 3",
             },
 
             {
-              details: "Yes, we have an API.",
-              title: "Do you have an API?",
+              details: "answer 4",
+              title: "question 4",
             },
           ],
         },
