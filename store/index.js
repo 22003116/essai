@@ -1,7 +1,7 @@
 export const state = () => ({
     categories: [
         {
-            name: 'Frequently Asked Questions',
+            title: 'Frequently Asked Questions',
             questions: [
                 'question 1',
                 'question 3',
@@ -9,7 +9,7 @@ export const state = () => ({
             ]
         },
         {
-            name: 'other category',
+            title: 'other category',
             questions: [
                 'question 1',
                 'question 2'
@@ -35,6 +35,15 @@ export const state = () => ({
         },
     ]
   })
+
+  export const getters = {
+    categories: state => {
+      return state.categories;
+    },
+    questions: state => {
+      return state.questions
+    }
+  }
   
   export const mutations = {
     addCategory(state, name) {
