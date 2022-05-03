@@ -7,7 +7,7 @@
     </template> -->
 
     <template>
-      <base-category :key="list.title" v-for="list in categories" :list="list">
+      <base-category :key="list.title" v-for="list in categories" :title="list.title" :list="list.questions">
       </base-category>
     </template>
   </div>

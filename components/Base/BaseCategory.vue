@@ -1,10 +1,10 @@
 <template>
     <div class="outline-none select-text overflow-hidden rounded-md border text-center bg-white p-6 shadow-sm">
-        <h2 @click="toggle">{{ list.title }}</h2>
+        <h2 @click="toggle">{{ title }}</h2>
         <div v-show="visible" class="flex flex-wrap gap-10 items-start text-center">
             <base-question
             :key="question"
-            v-for="question in list.questions"
+            v-for="question in list"
             :question="question"
             :answer="getAnswer(question)"
             class="outline-none select-text overflow-hidden rounded-md border text-center bg-white p-6 shadow-sm w-72"
@@ -18,6 +18,10 @@
     import { mapGetters } from 'vuex'
     export default {
         props: {
+            title: {
+                type: String,
+                required: true
+            },
             list: {
                 type: Array,
                 required: true,
