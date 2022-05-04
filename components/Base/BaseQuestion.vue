@@ -1,9 +1,9 @@
 <template>
-    <div @click="toggle" class="bg-white shadow rounded">
+    <div v-show="Visible" @click="toggle" class="bg-white shadow rounded">
         <p class="shadow-sm font-bold">
             {{ question }}
         </p>
-        <p v-if="visible">
+        <p v-if="AnswerVisible">
             {{ answer }}
         </p>
     </div>
@@ -24,17 +24,26 @@
                 type: Boolean,
                 required: false,
             },
+            search: {
+                type: String,
+                default: ""
+            },
+            FatherSearched: {
+                type: Boolean,
+                required: true
+            }
         },
         data() {
             return {
-                visible: false
+                AnswerVisible: false,
+                Visible: true
             }
         },
         methods: {
             toggle() {
                 if(!this.keepOpened)
                 {
-                    this.visible = !this.visible
+                    this.AnswerVisible = !this.AnswerVisible
                 }
             }
         },
@@ -42,6 +51,18 @@
             if(this.keepOpened){
                 this.visible = true
             }
-        }
+        },
+        watch: {
+            search(newValue) {
+                if(!this.FatherSearched && newValue !== '' && !this.answer.toLowerCase().includes(newValue.toLowerCase()) && !this.question.toLowerCase().includes(newValue.toLowerCase()))
+                {
+                    this.Visible = false;
+                }
+                else{
+                    this.Visible = true;
+                    this.$emit('childVisible')
+                }
+            }
+        },
     }
 </script>
