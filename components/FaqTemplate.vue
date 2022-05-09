@@ -9,7 +9,8 @@
         :admin="admin"
         :title="list.title" 
         :list="list.questions" 
-        :search="search"/>
+        :search="search"
+        @removeQuestionFromCategory="removeQuestionFromCategory"/>
     </template>
   </div>
 </template>
@@ -29,6 +30,11 @@
       ...mapGetters([
         'categories',
       ])
+    },
+    methods: {
+      removeQuestionFromCategory(categoryTitle, Question) {
+        this.$store.commit('removeQuestionFromCategory',{categoryTitle,Question})
+      }
     },
     data() {
       return {

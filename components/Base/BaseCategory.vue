@@ -69,7 +69,8 @@
             },
             deleteQuestion(question) {
                 console.log("BaseCategory.deleteQuestion (" + this.title + " " + question);
-                console.log(this.list.indexOf(question))
+                //console.log(this.list.indexOf(question))
+                this.$emit('removeQuestionFromCategory',this.title,question);
                 //this.list.splice(this.list.indexOf(question),1);
             },
             toggle() {
